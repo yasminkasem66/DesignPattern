@@ -105,39 +105,73 @@ class Carfactory{
 
 
 // 3-5  Abstract factory pattern ==here you abstract the factories and are able to create multiple factories,
-class SUV{
-    constructor(doors, engine, color){
-            this.doors=doors;
-            this.engine=engine;
-            this.color=color;
+// class SUV{
+//     constructor(doors, engine, color){
+//             this.doors=doors;
+//             this.engine=engine;
+//             this.color=color;
  
-    }
-}
-class SUVfactory{
-    createCar(type){
-        switch(type){
-            case 'cx5':
-                return new Car(4, 'v3', 'cx5');
-            case 'santavu':
-                return new Car(4, 'v8', 'santavu');
+//     }
+// }
+// class SUVfactory{
+//     createCar(type){
+//         switch(type){
+//             case 'cx5':
+//                 return new Car(4, 'v3', 'cx5');
+//             case 'santavu':
+//                 return new Car(4, 'v8', 'santavu');
 
-        }
-    } 
-}
+//         }
+//     } 
+// }
 
-const carFactory= new Carfactory ();
-const suvFactory= new SUVfactory ();
+// const carFactory= new Carfactory ();
+// const suvFactory= new SUVfactory ();
 
 
-const autoManuFacturer=(type,model)=>{
-    switch(type){
-        case 'car':
-            return carFactory.createCar(model);
-        case 'suv':
-            return suvFactory.createCar(model);
+// const autoManuFacturer=(type,model)=>{
+//     switch(type){
+//         case 'car':
+//             return carFactory.createCar(model);
+//         case 'suv':
+//             return suvFactory.createCar(model);
 
-    }
-}
+//     }
+// }
 
-const cx5=autoManuFacturer('suv','cx5');
-console.log(cx5);
+// const cx5=autoManuFacturer('suv','cx5');
+// console.log(cx5);
+
+
+// 4 
+// What are structural patterns? if the creational patterns are focused on the creation of new code, the structural pattern are focused on how to properly organize your code. 
+// we'll explore the module pattern, mixins, the facade, flyweight, and decorator patterns. Then we'll spend some time on the MVC, MVP, and MVVM patterns. These are about how you organize the structure of the larger application. So without further ado, let's get started.
+
+//4_1  Module pattern   Whenever you're encapsulating a block of code into a singular function or a pure function, as it is sometimes referred to, you're creating a module. The idea behind using modules is to organize your code in pure functions. So if you have your code to debug, it is much easier to find where the error is. We often use modules too, with the key word import or export. 
+
+//4-2 Mixins pattern
+// Mixins are a great way to mix functions and instances of classes after they have been created. In other words you could use mixins to add interesting functions to the car class we created earlier. 
+
+// 4_3 Facade pattern
+// What is a facade? It is basically the pattern of hiding complexity away by creating a facade for the complex code. So if you are thinking, wait, what? That's absolutely normal. If you're a React developer, or building components, you've been using facades every day. When you're building your component in any framework, you code the complexity of this component into a module, or file, and then leverage a simple line to render this component into your code. Well, this is what the facade pattern
+
+
+// 4_4
+// Flyweight pattern  The flyweight pattern is a method to minimize recreating the same items twice, and therefore minimize the memory impact in our systems. 
+// your browsers uses the flyweight pattern to save images in memory so they don't load twice.   The flyweight pattern uses a similar approach to the singleton. 
+
+// 4_5
+// - The decorator pattern is very similar to mixins, where we decorate code with classes or code that came from another area. There is actual syntax in the most recent versions of JavaScript and has been used for a while in TypeScript and is heavily used in Angular code. So the purpose of a decorator pattern, like a mixin, is to to take, for example, a class and extended it with other code. 
+// typescripeline.org/docs 
+
+// 4_6 MVC
+//  models, views, and controllers. The model is where your data resides, where you define your schemas and the models for your data. The views is where you have your views, or in most cases, the pure HTML of you application, where the visuals are. And finally, the controllers are where you have your logic of your application, the functions that makes your application run. 
+
+
+// 4_7 MVP
+// pattern is the Model-View-Presenter pattern, which is loosely based on MVC, and almost the same. Looking at both will help define the major differences in between the two, but they offer similar approaches, but architectured differently. In an MVC, or Model-View-Controller pattern, we have our application organized in models, views, and controllers. Typically the organization will have views, pull data from controllers or models directly, and if there are any other logic or functions needed for the view, the controllers will supply them. So in other words, their views have access to both the models and controllers. Where MVP differs is the view doesn't have to access the model. It has to get it from the presenter and the presenter serves as the logic, and supplier of data. In this pattern, the view passes through the presenter to get the data through functions, and the presenter pulls from the model. It is the major difference. The MVP pattern is seen in several frameworks, such as backbone, but it is quite popular in Android development.
+
+
+// 4_8
+// Model-View-ViewModel (MVVM) pattern
+// - The model view view model pattern is similar than the other two we just explored, and is different only in implementation again. It is also sometimes referred to as MVVC, or model view view controller. But in both cases, it serves the same purpose. The first view is your view which doesn't have any data or logic. It is simply a dumb component, or component without any logic or data. Then you have the second view, model, which holds the logic in a state of the data, and this view model connects to a model. If you would like to see examples of this MVVM pattern, simply develop an architecture applications with React and Angler, and you will see this MVVM approach in action. For example, in React, your application is architectured in stateless components, which are views. Stateful components which hold data and logic, therefore the view model, and then finally the model, is where React typically connects to a back end to process data, where your models are defined.
