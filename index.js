@@ -175,3 +175,31 @@ class Carfactory{
 // 4_8
 // Model-View-ViewModel (MVVM) pattern
 // - The model view view model pattern is similar than the other two we just explored, and is different only in implementation again. It is also sometimes referred to as MVVC, or model view view controller. But in both cases, it serves the same purpose. The first view is your view which doesn't have any data or logic. It is simply a dumb component, or component without any logic or data. Then you have the second view, model, which holds the logic in a state of the data, and this view model connects to a model. If you would like to see examples of this MVVM pattern, simply develop an architecture applications with React and Angler, and you will see this MVVM approach in action. For example, in React, your application is architectured in stateless components, which are views. Stateful components which hold data and logic, therefore the view model, and then finally the model, is where React typically connects to a back end to process data, where your models are defined.
+
+
+
+
+
+// deep copy vs shallow copy
+searchsecondLevel = {
+  "EnName": "jasmin",
+  "AvailabilityStatusId": 0,
+  "paging": {
+    "pageNumber": 0,
+    "pageSize": 10,
+    "sortingExpression": "",
+    "sortingDirection": 1
+  }
+};
+/* const cloneFood = Object.assign({}, searchsecondLevel);
+searchsecondLevel.EnName="Ahmed";
+searchsecondLevel.paging.pageNumber=6;
+searchsecondLevel.paging.pageSize=100;
+ */
+const cloneFood = JSON.parse(JSON.stringify(searchsecondLevel));
+searchsecondLevel.EnName="Ahmed";
+searchsecondLevel.paging.pageNumber=6;
+searchsecondLevel.paging.pageSize=100;
+
+
+console.log(cloneFood)
